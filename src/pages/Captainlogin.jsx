@@ -5,9 +5,9 @@ import axios from 'axios';
 
 const Captainlogin = () => {
   const navigate = useNavigate()
-  const {captain , setCaptain } = useContext(CaptainDataContext)
+  const {Captain , setCaptain } = useContext(CaptainDataContext)
   const [email, setemail] = useState('');
-  const [password, setpasswrod] = useState('');
+  const [password, setpassword] = useState('');
   const [CaptainData, setCaptainData] = useState('');
 
   const submitHandler = async (e) => {
@@ -17,17 +17,20 @@ const Captainlogin = () => {
       password: password,
     };
 
+    try{
     const response = await axios.post(`${import.meta.env.VITE_BASE_URL}/captain/login`,Captain)
-
-    if(response.status === 201){
+    console.log(response)
+    if(response.status === 200){
       const data = response.data
       setCaptain(data.captain)
       localStorage.setItem('token',data.token)
       navigate('/captain-home')
+    }}catch(err){
+      console.log('login failed', err.response?.data?.message || err.message)
     }
 
     setemail('');
-    setpasswrod('');
+    setpassword('');
   };
 
   return (
@@ -47,7 +50,7 @@ const Captainlogin = () => {
           <h3 className='text-xl font-medium mb-2'>Enter your password</h3>
           <input
             value={password}
-            onChange={(e) => setpasswrod(e.target.value)}
+            onChange={(e) => setpassword(e.target.value)}
             className='mb-7 rounded px-4 py-2 border w-full text-lg placeholder:text-base'
             required
             type='password'

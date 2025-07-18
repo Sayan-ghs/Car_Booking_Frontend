@@ -158,7 +158,7 @@ const CaptainSignUp = () => {
         </form>
       </div>
       <div>
-        <p className='text-[6px] leading-tight'>
+        <p className='text-[6px] mt-6 leading-tight'>
           This site is protected by reCaptcha and the <span className='underline text-bold'>sayanghosh Privacy Policy</span> and <span className='underline text-bold '>Terms of Service apply</span>
         </p>
       </div>
