@@ -4,6 +4,7 @@ import CaptainDetails from '../components/CaptainDetails'
 import RidePopup from '../components/RidePopup'
 import { useGSAP } from '@gsap/react'
 import gsap from 'gsap'
+import MapComponent from '../components/MapComponent'
 import ConfirmRidepopup from '../components/ConfirmRidepopup'
 
 const CaptainHome = () => {
@@ -41,9 +42,9 @@ const CaptainHome = () => {
           <Link to='/captain-login' className='h-10 w-10 bg-white flex items-center justify-center rounded-full '><i className="ri-logout-box-r-line"></i></Link>
         </div>
         <div className='h-3/5'>
-            <img className='h-full' src="https://www.google.com/maps/d/thumbnail?mid=1rQcR1r8Q8mv4BO9oWuppaMQa0Mg" alt="" />
+            <MapComponent />
         </div>
-        <div className='h-2/5 p-6'>
+        <div className='h-2/5 p-6 py-8'>
         <CaptainDetails/>
         </div>
         <div ref = {ridePopuppanelRef} className='fixed w-full z-10 bottom-0 bg-white translate-y-full px-3 py-10 pt-12'>
